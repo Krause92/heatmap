@@ -148,6 +148,7 @@ public:
     while(nh.ok())
     {
       wifi_signal sig = getSignal();
+      sig.link_level = sig.link_quality-110;
       signal_pub.publish(sig);
       loop_rate.sleep();
       ros::spinOnce();
